@@ -7,9 +7,13 @@ import { Component } from '@angular/core';
 })
 export class FirstComponent {
   isHidden = false;
+  contenuDeLInput = '';
   message = "Je suis le first";
   showhide() {
      this.isHidden = !this.isHidden;
+  }
+  changeContenuDeLInput(nouvelleValeur: string) {
+    this.contenuDeLInput = nouvelleValeur;
   }
   constructor() {
     setTimeout(() => this.message = "autre valeur", 2000);

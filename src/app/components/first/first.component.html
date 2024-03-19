@@ -5,6 +5,17 @@
 <button (click)="showhide()" class="btn btn-danger">
   toggle
 </button>
+<input
+  (change)="changeContenuDeLInput(monInput.value)"
+  type="text"
+  class="form-control"
+  #monInput
+>
+
+<div class="alert alert-info">
+  Le contenu de la div est : ???
+</div>
+
 <div class="alert alert-warning">
   <app-second/>
 </div>
