@@ -2,7 +2,4 @@
 /* @import './../node_modules/bootstrap/dist/css/bootstrap.css'; */
 @import '~bootstrap';
 @import '~bootstrap-icons';
-
-p {
-  color: green;
-}
+@import '/src/assets/css/rotating-card.css';
