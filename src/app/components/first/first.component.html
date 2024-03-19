@@ -1,0 +1,18 @@
+
+<p [hidden]="isHidden">first {{message}}</p>
+
+<!-- Appelle showhide à chaque click sur le boutton -->
+<button (click)="showhide()" class="btn btn-danger">
+  toggle
+</button>
+<div class="alert alert-warning">
+  <app-second/>
+</div>
+
+
+<!--
+  qu'est ce qu'on a la ?
+  1- balise
+    1-1 evenements ( comportement )
+    1-2 attributs (img (src, width, height) => état)
+-->
