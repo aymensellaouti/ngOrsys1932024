@@ -27,6 +27,15 @@ export class CvComponent {
       'rotating_card_profile3.png',
       5
     ),
+    new Cv(
+      3,
+      'Atmane',
+      'Farhi',
+      'développeur',
+      '12345',
+      'rotating_card_profile3.png',
+      25
+    ),
   ];
 
   /**
