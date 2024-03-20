@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Todo } from '../model/todo';
 import { LoggerService } from 'src/app/services/logger.service';
+import { SayHelloService } from 'src/app/services/say-hello.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { LoggerService } from 'src/app/services/logger.service';
 export class TodoService {
   private todos: Todo[] = [];
   loggerService = inject(LoggerService);
-  constructor() {}
+  constructor(private sayHelloService: SayHelloService) {}
 
   /**
    * elle retourne la liste des todos

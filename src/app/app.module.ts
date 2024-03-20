@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second.component';
 import { ColorComponent } from './components/color/color.component';
 import { TwowayComponent } from './components/twoway/twoway.component';
-import { FormsModule } from '@angular/forms';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
 import { PereComponent } from './components/pere/pere.component';
 import { FilsComponent } from './components/fils/fils.component';
@@ -26,6 +30,7 @@ import { LoggerService } from './services/logger.service';
 import { CONSTANTES } from './config/constantes.config';
 import { SayHelloService } from './services/say-hello.service';
 import { TodoComponent } from './todo/todo/todo.component';
+import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 
 @NgModule({
   declarations: [
@@ -48,12 +53,15 @@ import { TodoComponent } from './todo/todo/todo.component';
     RainbowDirective,
     BtcToUsdPipe,
     DefaultImagePipe,
-    TodoComponent
+    TodoComponent,
+    WeekTodoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   exports: [],
   providers: [
@@ -66,6 +74,6 @@ import { TodoComponent } from './todo/todo/todo.component';
     //   : FakeLoggerService
     // }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

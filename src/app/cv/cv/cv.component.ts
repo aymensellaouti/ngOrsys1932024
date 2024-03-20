@@ -4,6 +4,8 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { LoggerService } from 'src/app/services/logger.service';
 import { SayHelloService } from 'src/app/services/say-hello.service';
+import { TodoService } from 'src/app/todo/service/todo.service';
+import { ToastrService } from 'ngx-toastr';
 registerLocaleData(localeFr, 'fr');
 @Component({
   selector: 'app-cv',
@@ -14,10 +16,13 @@ export class CvComponent {
   // On demande à l'injecteur de nous fournir une instance de LoggerService
   constructor(
     private loggerService: LoggerService,
-    private sayHelloService: SayHelloService
+    private sayHelloService: SayHelloService,
+    private todoService: TodoService,
+    private toastr: ToastrService
   ) {
     this.sayHelloService.sayHello();
     this.loggerService.logger('cc c est le CvComponent');
+    this.toastr.info('Bonjorur :D');
   }
   today = new Date();
   // tableau de cvs
@@ -41,5 +46,6 @@ export class CvComponent {
   selectedCv: Cv | null = null;
   getSelectedCv(cv: Cv) {
     this.selectedCv = cv;
+    this.todoService.logTodos();
   }
 }

@@ -6,7 +6,7 @@ import { TodoService } from '../service/todo.service';
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
-  providers: [],
+  providers: [TodoService],
 })
 export class TodoComponent {
   // Quels mes attributs d'états ?
@@ -19,6 +19,8 @@ export class TodoComponent {
    * Le Todo à ajouter (à partir des champs du formulaire)
    */
   todo: Todo = new Todo();
+  // J'injecte mon service
+  // Donne moi une instance de TodoService
   todoService = inject(TodoService);
   constructor() {
     this.todos = this.todoService.getTodos();
