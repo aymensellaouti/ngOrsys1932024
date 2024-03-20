@@ -19,6 +19,7 @@ import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { MiniwordComponent } from './directives/miniword/miniword.component';
 import { NgClassComponent } from './directives/ng-class/ng-class.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { RainbowDirective } from './directives/rainbow.directive';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     NgstyleComponent,
     MiniwordComponent,
     NgClassComponent,
-    HighlightDirective
+    HighlightDirective,
+    RainbowDirective
   ],
   imports: [
     BrowserModule,
