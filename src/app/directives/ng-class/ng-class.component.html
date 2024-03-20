@@ -1,0 +1,12 @@
+<div
+  (click)="interrupteur()"
+  class="lampe"
+  [ngClass]="{
+    'eteinte': !open,
+    'allume': open
+  }"
+>Lampe</div>
+
+
+<div appHighlight>test custom</div>
+<div [in]="'pink'" [out]="'gold'" appHighlight>test custom</div>
