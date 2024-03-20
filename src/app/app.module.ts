@@ -22,6 +22,10 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
+import { LoggerService } from './services/logger.service';
+import { CONSTANTES } from './config/constantes.config';
+import { SayHelloService } from './services/say-hello.service';
+import { TodoComponent } from './todo/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,8 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
     HighlightDirective,
     RainbowDirective,
     BtcToUsdPipe,
-    DefaultImagePipe
+    DefaultImagePipe,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,16 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
     FormsModule
   ],
   exports: [],
-  providers: [],
+  providers: [
+    //SayHelloService
+    //LoggerService,
+    // {
+    //   provide: LoggerService,
+    //   useClass: CONSTANTES.enviroment == 'prod'
+    //   ? LoggerService
+    //   : FakeLoggerService
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
