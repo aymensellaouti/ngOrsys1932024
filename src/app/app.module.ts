@@ -31,6 +31,7 @@ import { CONSTANTES } from './config/constantes.config';
 import { SayHelloService } from './services/say-hello.service';
 import { TodoComponent } from './todo/todo/todo.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
+import { EmbaucheComponent } from './cv/embauche/embauche.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
     DefaultImagePipe,
     TodoComponent,
     WeekTodoComponent,
+    EmbaucheComponent
   ],
   imports: [
     BrowserModule,
