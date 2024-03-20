@@ -7,8 +7,8 @@ import { Cv } from '../model/cv';
   styleUrls: ['./item.component.css'],
 })
 export class ItemComponent {
-  @Input({ required: true })
-  cv!: Cv;
+  @Input({ required: true }) cv!: Cv;
+  @Input() size = 50;
   @Output() selectCv = new EventEmitter<Cv>();
 
   /**

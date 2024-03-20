@@ -6,6 +6,7 @@ import { LoggerService } from 'src/app/services/logger.service';
 import { SayHelloService } from 'src/app/services/say-hello.service';
 import { TodoService } from 'src/app/todo/service/todo.service';
 import { ToastrService } from 'ngx-toastr';
+import { CvService } from '../service/cv.service';
 registerLocaleData(localeFr, 'fr');
 @Component({
   selector: 'app-cv',
@@ -13,33 +14,22 @@ registerLocaleData(localeFr, 'fr');
   styleUrls: ['./cv.component.css'],
 })
 export class CvComponent {
+  today = new Date();
+  // tableau de cvs
+  cvs: Cv[] = [];
   // On demande à l'injecteur de nous fournir une instance de LoggerService
   constructor(
     private loggerService: LoggerService,
     private sayHelloService: SayHelloService,
     private todoService: TodoService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private cvService: CvService
   ) {
     this.sayHelloService.sayHello();
     this.loggerService.logger('cc c est le CvComponent');
     this.toastr.info('Bonjorur :D');
+    this.cvs = this.cvService.getCvs();
   }
-  today = new Date();
-  // tableau de cvs
-  cvs: Cv[] = [
-    new Cv(1, 'aymen', 'sellaouti', 'trainer', '12345', '', 41),
-    new Cv(2, 'skander', 'sellaouti', 'enfant', '12345', '         ', 5),
-    new Cv(
-      3,
-      'Atmane',
-      'Farhi',
-      'développeur',
-      '12345',
-      'rotating_card_profile3.png',
-      25
-    ),
-  ];
-
   /**
    * Le cv Sélectionné
    */
