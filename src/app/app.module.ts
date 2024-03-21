@@ -33,6 +33,7 @@ import { TodoComponent } from './todo/todo/todo.component';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { DetailsComponent } from './cv/details/details.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     TodoComponent,
     WeekTodoComponent,
     EmbaucheComponent,
-    NavbarComponent
+    NavbarComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
