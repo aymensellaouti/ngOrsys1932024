@@ -34,6 +34,7 @@ import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailsComponent } from './cv/details/details.component';
+import { NF404Component } from './components/nf404/nf404.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { DetailsComponent } from './cv/details/details.component';
     WeekTodoComponent,
     EmbaucheComponent,
     NavbarComponent,
-    DetailsComponent
+    DetailsComponent,
+    NF404Component
   ],
   imports: [
     BrowserModule,
