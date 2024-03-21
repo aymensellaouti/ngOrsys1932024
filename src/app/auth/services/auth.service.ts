@@ -4,12 +4,15 @@ import { CredentialsDto } from '../dto/credentials.dto';
 import { Observable, tap } from 'rxjs';
 import { LoginResponse } from '../dto/login-response.dto';
 import { APP_API } from 'src/app/config/api.config';
+import { Router } from '@angular/router';
+import { APP_ROUTES } from 'src/app/config/routes.config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private http = inject(HttpClient);
+  private router = inject(Router);
   constructor() {}
 
   login(credentials: CredentialsDto): Observable<LoginResponse> {
@@ -21,5 +24,14 @@ export class AuthService {
         }
       )
     );
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate([APP_ROUTES.login]);
+  }
+
+  isAuthenticated(): boolean {
+    return !! localStorage.getItem('token');
   }
 }

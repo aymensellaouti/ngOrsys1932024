@@ -40,6 +40,7 @@ import { TestFormComponent } from './forms/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './observables/test-observable/test-observable.component';
 import { TestHttpComponent } from './observables/test-http/test-http.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { TestHttpComponent } from './observables/test-http/test-http.component';
     TestFormComponent,
     LoginComponent,
     TestObservableComponent,
-    TestHttpComponent
+    TestHttpComponent,
+    AddCvComponent
   ],
   imports: [
     BrowserModule,

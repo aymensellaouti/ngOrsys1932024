@@ -10,19 +10,21 @@ import { DetailsComponent } from './cv/details/details.component';
 import { APP_ROUTES } from './config/routes.config';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
+import { AddCvComponent } from './cv/add-cv/add-cv.component';
 
 const routes: Routes = [
   //   => 'cv'
   // Je repérsente une route
-  { path: '', component: FirstComponent},
-  { path: APP_ROUTES.cv, component: CvComponent},
-  { path: 'cv/:id', component: DetailsComponent},
-  { path: APP_ROUTES.login, component: LoginComponent},
-  { path: 'todo', component: TodoComponent},
-  { path: 'word', component: MiniwordComponent},
-  { path: ':quelquechose', component: SecondComponent},
-  { path: 'color/:defaultColor', component: ColorComponent},
-  { path: '**', component: NF404Component},
+  { path: '', component: FirstComponent },
+  { path: APP_ROUTES.cv, component: CvComponent },
+  { path: APP_ROUTES.cv + '/add', component: AddCvComponent },
+  { path: APP_ROUTES.cv + '/:id', component: DetailsComponent },
+  { path: APP_ROUTES.login, component: LoginComponent },
+  { path: 'todo', component: TodoComponent },
+  { path: 'word', component: MiniwordComponent },
+  { path: ':quelquechose', component: SecondComponent },
+  { path: 'color/:defaultColor', component: ColorComponent },
+  { path: '**', component: NF404Component },
 ];
 //La facon avec des modules
 @NgModule({

@@ -4,6 +4,7 @@ import { CvService } from '../service/cv.service';
 import { Router } from '@angular/router';
 import { APP_ROUTES } from 'src/app/config/routes.config';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-details',
@@ -15,13 +16,14 @@ export class DetailsComponent implements OnInit {
   @Input() id = 0;
   // On inject le CvService pour le récupérer
   cvService = inject(CvService);
+  authService = inject(AuthService);
   router = inject(Router);
   toastr = inject(ToastrService);
   constructor() {}
   ngOnInit(): void {
     this.cvService.getCvById(this.id).subscribe({
-      next: (cv) => this.cv = cv,
-      error: (e) => this.router.navigate([APP_ROUTES.cv])
+      next: (cv) => (this.cv = cv),
+      error: (e) => this.router.navigate([APP_ROUTES.cv]),
     });
   }
   deleteCv() {
@@ -31,8 +33,8 @@ export class DetailsComponent implements OnInit {
           this.router.navigate([APP_ROUTES.cv]);
           this.toastr.success(`Le cv a été supprimé avec succès`);
         },
-        error: (e) => console.log({e})
-      })
+        error: (e) => console.log({ e }),
+      });
     }
   }
 }

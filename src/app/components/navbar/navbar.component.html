@@ -13,11 +13,19 @@
           routerLinkActive="text-primary active"
           [routerLinkActiveOptions]="{exact: true}"
         >Home</a>
-        <a class="nav-link" [routerLink]="['cv']" routerLinkActive="text-primary active">Cv</a>
+        <a class="nav-link" [routerLink]="['cv']" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="text-primary active">Cv</a>
+        <a
+          *ngIf="authService.isAuthenticated()"
+          class="nav-link" [routerLink]="['cv/add']" routerLinkActive="text-primary active">Add Cv</a>
         <a class="nav-link" [routerLink]="['todo']" routerLinkActive="text-primary active">Todo</a>
         <a class="nav-link" [routerLink]="['word']" routerLinkActive="text-primary active">Mini Word</a>
         <a class="nav-link" [routerLink]="['color', 'lightblue']" routerLinkActive="text-primary active">Color</a>
-        <a class="nav-link" [routerLink]="['login']" routerLinkActive="text-primary active">Login</a>
+        <a
+          *ngIf="!authService.isAuthenticated()"
+          class="nav-link" [routerLink]="['login']" routerLinkActive="text-primary active">Login</a>
+        <a
+          *ngIf="authService.isAuthenticated()"
+          class="nav-link" (click)="logout()"  routerLinkActive="text-primary active">Logout</a>
       </div>
     </div>
   </div>
