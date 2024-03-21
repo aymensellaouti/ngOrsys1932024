@@ -11,11 +11,9 @@ import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-
   constructor() {
     console.log('In interceptor !!!');
   }
-
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     //const params = new HttpParams().set('access_token', localStorage.getItem('token') ?? '');
     const authService = inject(AuthService);
