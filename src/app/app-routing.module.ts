@@ -9,6 +9,7 @@ import { SecondComponent } from './components/second.component';
 import { DetailsComponent } from './cv/details/details.component';
 import { APP_ROUTES } from './config/routes.config';
 import { NF404Component } from './components/nf404/nf404.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   //   => 'cv'
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: '', component: FirstComponent},
   { path: APP_ROUTES.cv, component: CvComponent},
   { path: 'cv/:id', component: DetailsComponent},
+  { path: APP_ROUTES.login, component: LoginComponent},
   { path: 'todo', component: TodoComponent},
   { path: 'word', component: MiniwordComponent},
   { path: ':quelquechose', component: SecondComponent},
