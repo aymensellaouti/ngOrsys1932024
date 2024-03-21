@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -41,6 +41,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './observables/test-observable/test-observable.component';
 import { TestHttpComponent } from './observables/test-http/test-http.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     LoginComponent,
     TestObservableComponent,
     TestHttpComponent,
-    AddCvComponent
+    AddCvComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +82,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [],
   providers: [
@@ -93,6 +94,19 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     //   ? LoggerService
     //   : FakeLoggerService
     // }
+    // {
+    //   provide: LoggerService,
+    //   useClass: LoggerService,
+    // },
+    // {
+    //   provide: LoggerService,
+    //   useClass: SayHelloService,
+    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

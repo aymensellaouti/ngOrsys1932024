@@ -36,7 +36,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     bindToComponentInputs: true,
-    enableTracing: true
+    // enableTracing: true
   })],
   exports: [RouterModule]
 })

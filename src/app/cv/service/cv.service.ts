@@ -45,10 +45,13 @@ export class CvService {
   getCvById(id: number): Observable<Cv> {
     return this.http.get<Cv>(APP_API.cv + id);
   }
+
+  addCv(cv:Cv): Observable<Cv> {
+    return this.http.post<Cv>(APP_API.cv, cv);
+  }
   deleteCvById(id: number): Observable<any> {
-    //const params = new HttpParams().set('access_token', localStorage.getItem('token') ?? '');
-    const headers = new HttpHeaders().set('Authorization', localStorage.getItem('token') ?? '');
-    return this.http.delete<any>(APP_API.cv + id, { headers });
+
+    return this.http.delete<any>(APP_API.cv + id);
   }
 
   /**
