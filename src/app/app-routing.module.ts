@@ -7,6 +7,7 @@ import { MiniwordComponent } from './directives/miniword/miniword.component';
 import { ColorComponent } from './components/color/color.component';
 
 const routes: Routes = [
+  // Je repérsente une route
   { path: '', component: FirstComponent},
   { path: 'cv', component: CvComponent},
   { path: 'todo', component: TodoComponent},

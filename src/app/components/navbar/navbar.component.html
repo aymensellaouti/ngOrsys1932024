@@ -6,12 +6,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" [routerLink]="['/']" >Home</a>
-        <a class="nav-link" [routerLink]="['cv']">Cv</a>
-        <a class="nav-link" [routerLink]="['todo']">Todo</a>
-        <a class="nav-link" [routerLink]="['word']">Mini Word</a>
-        <a class="nav-link" [routerLink]="['color']">Color</a>
+        <a
+          class="nav-link"
+          aria-current="page"
+          [routerLink]="['/']"
+          routerLinkActive="text-primary active"
+          [routerLinkActiveOptions]="{exact: true}"
+        >Home</a>
+        <a class="nav-link" [routerLink]="['cv']" routerLinkActive="text-primary active">Cv</a>
+        <a class="nav-link" [routerLink]="['todo']" routerLinkActive="text-primary active">Todo</a>
+        <a class="nav-link" [routerLink]="['word']" routerLinkActive="text-primary active">Mini Word</a>
+        <a class="nav-link" [routerLink]="['color']" routerLinkActive="text-primary active">Color</a>
       </div>
     </div>
   </div>
 </nav>
+
+<!--
+  cv/edit/1
+  activer cv/edit/1
+  activer cv/edit
+  activer cv
+  activer /
+-->
