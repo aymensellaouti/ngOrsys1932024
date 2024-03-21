@@ -2,10 +2,9 @@
   <div class="col">
     <div class="alert alert-warning">
       {{today | date:'fullDate':'GMT':'fr' | titlecase}}
-      <p>{{ 1 | btcToUsd | currency }}</p>
-      <p>{{ 500000| btcToUsd: false  }}</p>
+      Les cvs ont élé sélctionné {{nbre}} fois;
     </div>
-    <app-list (forwardCv)="getSelectedCv($event)" [cvs]="cvs"/></div>
+    <app-list [cvs]="cvs"/></div>
   <div class="col"><app-detail-card [cv]="selectedCv"/></div>
 </div>
 <app-embauche/>

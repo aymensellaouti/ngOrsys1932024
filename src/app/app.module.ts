@@ -37,6 +37,7 @@ import { DetailsComponent } from './cv/details/details.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './forms/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
+import { TestObservableComponent } from './observables/test-observable/test-observable.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { LoginComponent } from './auth/login/login.component';
     DetailsComponent,
     NF404Component,
     TestFormComponent,
-    LoginComponent
+    LoginComponent,
+    TestObservableComponent
   ],
   imports: [
     BrowserModule,

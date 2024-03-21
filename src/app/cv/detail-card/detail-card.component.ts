@@ -2,6 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { Cv } from '../model/cv';
 import { EmbaucheService } from '../service/embauche.service';
 import { ToastrService } from 'ngx-toastr';
+import { CvService } from '../service/cv.service';
 
 @Component({
   selector: 'app-detail-card',
@@ -12,8 +13,9 @@ export class DetailCardComponent {
   @Input()
   cv: Cv | null = null;
   embaucheService = inject(EmbaucheService);
+  cvService = inject(CvService);
   toastr = inject(ToastrService);
-
+  constructor() {}
   embaucher() {
     if (this.cv) {
       if (this.embaucheService.embaucher(this.cv)) {

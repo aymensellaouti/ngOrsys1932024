@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Cv } from '../model/cv';
+import { Subject, distinctUntilChanged } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CvService {
   private cvs: Cv[] = [];
+  // Flux de données qui va notifier à chaque fois qu'on clique sur un cv
+  // aymen atmane skander aymen ....
+  private selectCvSubject$ = new Subject<Cv>();
+  selectCv$ = this.selectCvSubject$.asObservable().pipe(distinctUntilChanged());
   constructor() {
     this.cvs = [
       new Cv(1, 'aymen', 'sellaouti', 'trainer', '12345', '', 41),
@@ -37,7 +42,7 @@ export class CvService {
    * @returns Cv
    */
   getCvById(id: number): Cv | null {
-    return this.cvs.find(cv => cv.id == id) ?? null;
+    return this.cvs.find((cv) => cv.id == id) ?? null;
   }
 
   /**
@@ -52,5 +57,9 @@ export class CvService {
       return true;
     }
     return false;
+  }
+  selectCv(cv: Cv) {
+    // On notifie tous nos subscriber sur le cv qui vient d'etre selectionnés
+    this.selectCvSubject$.next(cv);
   }
 }
