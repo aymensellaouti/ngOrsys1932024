@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -38,6 +39,7 @@ import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './forms/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './observables/test-observable/test-observable.component';
+import { TestHttpComponent } from './observables/test-http/test-http.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,8 @@ import { TestObservableComponent } from './observables/test-observable/test-obse
     NF404Component,
     TestFormComponent,
     LoginComponent,
-    TestObservableComponent
+    TestObservableComponent,
+    TestHttpComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +79,7 @@ import { TestObservableComponent } from './observables/test-observable/test-obse
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    HttpClientModule
   ],
   exports: [],
   providers: [

@@ -31,7 +31,13 @@ export class CvComponent {
     this.sayHelloService.sayHello();
     this.loggerService.logger('cc c est le CvComponent');
     this.toastr.info('Bonjorur :D');
-    this.cvs = this.cvService.getCvs();
+    this.cvService.getCvs().subscribe({
+      next: (cvs) => this.cvs = cvs,
+      error: (err) => {
+        this.toastr.error(`Les données sont fake, merci de contatcer l'admin`);
+        this.cvs = this.cvService.getFakeCvs()
+      }
+    });
     this.cvService.selectCv$
     .subscribe((cv) => {
       console.log("j ai recu", cv);

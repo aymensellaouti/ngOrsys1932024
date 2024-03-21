@@ -19,17 +19,20 @@ export class DetailsComponent implements OnInit {
   toastr = inject(ToastrService);
   constructor() {}
   ngOnInit(): void {
-    this.cv = this.cvService.getCvById(this.id);
-    if (!this.cv) {
-      this.router.navigate([APP_ROUTES.cv]);
-    }
+    this.cvService.getCvById(this.id).subscribe({
+      next: (cv) => this.cv = cv,
+      error: (e) => this.router.navigate([APP_ROUTES.cv])
+    });
   }
   deleteCv() {
     if (this.cv) {
-      if (this.cvService.deleteCv(this.cv)) {
-        this.router.navigate([APP_ROUTES.cv]);
-        this.toastr.success(`Le cv a été supprimé avec succès`);
-      }
+      this.cvService.deleteCvById(this.cv.id).subscribe({
+        next: (cv) => {
+          this.router.navigate([APP_ROUTES.cv]);
+          this.toastr.success(`Le cv a été supprimé avec succès`);
+        },
+        error: (e) => console.log({e})
+      })
     }
   }
 }
