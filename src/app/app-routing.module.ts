@@ -11,16 +11,22 @@ import { APP_ROUTES } from './config/routes.config';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { authGuard } from './auth/guards/auth.guard';
+import { canLeaveGuard } from './todo/guards/can-leave.guard';
 
 const routes: Routes = [
-  //   => 'cv'
+  //   => 'cv' cv/add
   // Je repérsente une route
   { path: '', component: FirstComponent },
   { path: APP_ROUTES.cv, component: CvComponent },
-  { path: APP_ROUTES.cv + '/add', component: AddCvComponent },
+  {
+    path: APP_ROUTES.cv + '/add',
+    component: AddCvComponent,
+    canActivate: [authGuard],
+  },
   { path: APP_ROUTES.cv + '/:id', component: DetailsComponent },
   { path: APP_ROUTES.login, component: LoginComponent },
-  { path: 'todo', component: TodoComponent },
+  { path: 'todo', component: TodoComponent, canDeactivate: [canLeaveGuard] },
   { path: 'word', component: MiniwordComponent },
   { path: ':quelquechose', component: SecondComponent },
   { path: 'color/:defaultColor', component: ColorComponent },
