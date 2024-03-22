@@ -7,7 +7,7 @@ import { SayHelloService } from 'src/app/services/say-hello.service';
 import { TodoService } from 'src/app/todo/service/todo.service';
 import { ToastrService } from 'ngx-toastr';
 import { CvService } from '../service/cv.service';
-import { distinctUntilChanged } from 'rxjs';
+import { Observable, catchError, distinctUntilChanged, filter, of } from 'rxjs';
 registerLocaleData(localeFr, 'fr');
 @Component({
   selector: 'app-cv',
@@ -20,6 +20,7 @@ export class CvComponent {
   cvs: Cv[] = [];
   selectedCv: Cv | null = null;
   nbre = 0;
+  cvs$: Observable<Cv[]>;
   // On demande à l'injecteur de nous fournir une instance de LoggerService
   constructor(
     private loggerService: LoggerService,
@@ -31,13 +32,21 @@ export class CvComponent {
     this.sayHelloService.sayHello();
     this.loggerService.logger('cc c est le CvComponent');
     this.toastr.info('Bonjorur :D');
-    this.cvService.getCvs().subscribe({
-      next: (cvs) => this.cvs = cvs,
-      error: (err) => {
+    this.cvs$ = this.cvService.getCvs().pipe(
+      distinctUntilChanged(),
+      catchError((e) => {
         this.toastr.error(`Les données sont fake, merci de contatcer l'admin`);
-        this.cvs = this.cvService.getFakeCvs()
-      }
-    });
+        return of(this.cvService.getFakeCvs());
+      })
+    );
+    // V1
+    // this.cvService.getCvs().subscribe({
+    //   next: (cvs) => this.cvs = cvs,
+    //   error: (err) => {
+    //     this.toastr.error(`Les données sont fake, merci de contatcer l'admin`);
+    //     this.cvs = this.cvService.getFakeCvs()
+    //   }
+    // });
     this.cvService.selectCv$
     .subscribe((cv) => {
       console.log("j ai recu", cv);

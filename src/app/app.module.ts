@@ -27,11 +27,6 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { BtcToUsdPipe } from './pipes/btc-to-usd.pipe';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
-import { LoggerService } from './services/logger.service';
-import { CONSTANTES } from './config/constantes.config';
-import { SayHelloService } from './services/say-hello.service';
-import { TodoComponent } from './todo/todo/todo.component';
-import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DetailsComponent } from './cv/details/details.component';
@@ -42,6 +37,7 @@ import { TestObservableComponent } from './observables/test-observable/test-obse
 import { TestHttpComponent } from './observables/test-http/test-http.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
+import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [
@@ -64,8 +60,6 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
     RainbowDirective,
     BtcToUsdPipe,
     DefaultImagePipe,
-    TodoComponent,
-    WeekTodoComponent,
     EmbaucheComponent,
     NavbarComponent,
     DetailsComponent,
@@ -83,6 +77,7 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
+    TodoModule
   ],
   exports: [],
   providers: [

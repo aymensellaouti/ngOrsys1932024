@@ -26,11 +26,10 @@ const routes: Routes = [
   },
   { path: APP_ROUTES.cv + '/:id', component: DetailsComponent },
   { path: APP_ROUTES.login, component: LoginComponent },
-  { path: 'todo', component: TodoComponent, canDeactivate: [canLeaveGuard] },
   { path: 'word', component: MiniwordComponent },
-  { path: ':quelquechose', component: SecondComponent },
+  //{ path: ':quelquechose', component: SecondComponent },
   { path: 'color/:defaultColor', component: ColorComponent },
-  { path: '**', component: NF404Component },
+  // { path: '**', component: NF404Component },
 ];
 //La facon avec des modules
 @NgModule({

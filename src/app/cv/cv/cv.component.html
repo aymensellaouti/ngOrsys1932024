@@ -1,4 +1,4 @@
-<div class="row">
+<div *ngIf="cvs$ | async as cvs" class="row">
   <div class="col">
     <div class="alert alert-warning">
       {{today | date:'fullDate':'GMT':'fr' | titlecase}}

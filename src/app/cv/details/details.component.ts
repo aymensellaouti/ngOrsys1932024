@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { APP_ROUTES } from 'src/app/config/routes.config';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/services/auth.service';
+import { EMPTY, Observable, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -19,12 +20,21 @@ export class DetailsComponent implements OnInit {
   authService = inject(AuthService);
   router = inject(Router);
   toastr = inject(ToastrService);
+  cv$! : Observable<Cv>;
   constructor() {}
   ngOnInit(): void {
-    this.cvService.getCvById(this.id).subscribe({
-      next: (cv) => (this.cv = cv),
-      error: (e) => this.router.navigate([APP_ROUTES.cv]),
-    });
+    this.cv$ = this.cvService
+      .getCvById(this.id)
+      .pipe(
+        catchError((e) => {
+        this.router.navigate([APP_ROUTES.cv]);
+        return EMPTY;
+      }
+      ));
+    // .subscribe({
+    //   next: (cv) => (this.cv = cv),
+    //   error: (e) => this.router.navigate([APP_ROUTES.cv]),
+    // });
   }
   deleteCv() {
     if (this.cv) {
