@@ -36,7 +36,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       bindToComponentInputs: true,
       preloadingStrategy: CustomPreloadingStrategy,
-      //preloadingStrategy: PreloadAllModules
+      // preloadingStrategy: PreloadAllModules
       // enableTracing: true
     }),
   ],
