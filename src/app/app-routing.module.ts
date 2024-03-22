@@ -8,13 +8,20 @@ import { APP_ROUTES } from './config/routes.config';
 import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
 import { CustomPreloadingStrategy } from './preloadingStrategy/custom.preloading-strategy';
+import { FrontComponent } from './siteTemplate/front/front.component';
+import { BackComponent } from './siteTemplate/back/back.component';
 
 const routes: Routes = [
   //   => 'cv' cv/add
   // Je repérsente une route
   { path: '', component: FirstComponent },
   { path: APP_ROUTES.login, component: LoginComponent },
-  { path: 'word', component: MiniwordComponent },
+  { path: '', component: FrontComponent },
+  { path: 'admin', component: BackComponent, children: [
+      { path: 'word', component: MiniwordComponent },
+    ]
+  },
+
   {
     path: APP_ROUTES.cv,
     loadChildren: () => import('./cv/cv.module').then((m) => m.CvModule),

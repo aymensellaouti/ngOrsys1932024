@@ -28,6 +28,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './observables/test-observable/test-observable.component';
 import { TestHttpComponent } from './observables/test-http/test-http.component';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
+import { FrontComponent } from './siteTemplate/front/front.component';
+import { BackComponent } from './siteTemplate/back/back.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
     LoginComponent,
     TestObservableComponent,
     TestHttpComponent,
+    FrontComponent,
+    BackComponent,
   ],
   imports: [
     BrowserModule,
